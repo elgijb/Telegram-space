@@ -23,9 +23,6 @@ def fetch_epic_images(api_key):
 if __name__ == "__main__":
     load_dotenv()
 
-    parser = argparse.ArgumentParser(description="Fetch NASA EPIC images")
-    args = parser.parse_args()
-
     api_key = os.getenv('NASA_API_KEY')
     images = fetch_epic_images(api_key)
     download_images(images, 'nasa_epic')
