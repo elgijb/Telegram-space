@@ -8,18 +8,24 @@
 
 1. Клонируйте репозиторий:
 
-       git clone https://github.com/ваш-репозиторий/telegram-space-photo-publisher.git
-    cd telegram-space-photo-publisher
+```python
+git clone https://github.com/ваш-репозиторий/telegram-space-photo-publisher.git
+cd telegram-space-photo-publisher
+```
     
 2. Создайте и активируйте виртуальное окружение:
 
-       python -m venv venv
-    source venv/bin/activate  # для Windows: venv\Scripts\activate
-    
+```python
+python -m venv venv
+source venv/bin/activate  # для Windows: venv\Scripts\activate
+```    
+
 3. Установите зависимости:
 
-       pip install -r requirements.txt
-    
+```python
+pip install -r requirements.txt
+```
+
 4. Создайте файл `.env` и заполните его вашими значениями:
 
     NASA_API_KEY=ваш_nasa_api_key
@@ -35,7 +41,9 @@
 python fetch_spacex_images.py --launch_id <launch_id>  # опционально
 
 Пример:
+```python
 python fetch_spacex_images.py
+```
 
 ### 2. Скачивание фотографий NASA APOD
 
@@ -43,17 +51,23 @@ python fetch_spacex_images.py
 python fetch_nasa_apod.py --count <количество_фото>
 
 Пример:
+```python
 python fetch_nasa_apod.py --count 5
+```
 
 ### 3. Скачивание фотографий NASA EPIC
 
 Скачивает фотографии NASA EPIC.
+```python
 python fetch_nasa_epic.py
+```
 
 ### 4. Публикация текста и случайной фотографии в Telegram
 
 Публикует текстовое сообщение и случайную фотографию из указанных папок в ваш Telegram-канал.
+```python
 python publish_text.py
+```
 
 ### 5. Автоматическая публикация фотографий через заданные промежутки времени
 
@@ -61,17 +75,20 @@ python publish_text.py
 python auto_publish.py --interval <часы>
 
 Пример:
+```python
 python auto_publish.py --interval 4
-
+```
 ## Проверка
 
 1. Откройте новую консоль, чтобы сбросить переменные окружения.
 
 2. Создайте новое виртуальное окружение и активируйте его:
 
-    python -m venv venv
-    source venv/bin/activate  # для Windows: venv\Scripts\activate
-    
+```python
+python -m venv venv
+source venv/bin/activate  # для Windows: venv\Scripts\activate
+```
+
 3. Последовательно выполните все инструкции по установке и запустите каждый из скриптов, чтобы убедиться, что они работают как описано.
 
 4. Убедитесь, что фотографии скачиваются в папку `images` и публикуются в вашем Telegram-канале.
