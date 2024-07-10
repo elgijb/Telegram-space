@@ -59,7 +59,7 @@ python fetch_nasa_apod.py --count 5
 
 Скачивает фотографии NASA EPIC.
 ```python
-python fetch_nasa_epic.py
+python fetch_epic_images.py
 ```
 
 ### 4. Публикация текста и случайной фотографии в Telegram
@@ -72,11 +72,11 @@ python publish_text.py
 ### 5. Автоматическая публикация фотографий через заданные промежутки времени
 
 Публикует фотографии из заданной директории через указанные промежутки времени. Если все фото были опубликованы, начинает публикацию заново, перемешав фото в случайном порядке.
-python auto_publish.py --interval <часы>
+python publish_scheduled_photos.py --interval <часы>
 
 Пример:
 ```python
-python auto_publish.py --interval 4
+python publish_scheduled_photos.py --interval 4
 ```
 ## Проверка
 
