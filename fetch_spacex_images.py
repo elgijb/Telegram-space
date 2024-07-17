@@ -14,8 +14,6 @@ def fetch_spacex_images(launch_id):
 
 
 if __name__ == "__main__":
-    load_dotenv()
-
     parser = argparse.ArgumentParser(description="Fetch SpaceX images by launch ID.")
     parser.add_argument('--launch_id', type=str, default='5eb87d47ffd86e000604b38a', help='ID of SpaceX launch')
     args = parser.parse_args()
