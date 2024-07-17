@@ -13,15 +13,15 @@ def publish_photo_to_channel(bot, chat_id, photo_path):
 if __name__ == "__main__":
     load_dotenv()
 
-    TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-    TELEGRAM_CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID')
-    PUBLISH_INTERVAL = int(os.getenv('PUBLISH_INTERVAL', 14400))
+    thelegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+    telegram_channel_id = os.getenv('TELEGRAM_CHANNEL_ID')
+    publish_interval = int(os.getenv('PUBLISH_INTERVAL', 14400))
 
     parser = argparse.ArgumentParser(description="Schedule photo publishing to Telegram channel.")
-    parser.add_argument('--interval', type=int, default=PUBLISH_INTERVAL, help='Interval between photo publications in seconds.')
+    parser.add_argument('--interval', type=int, default=publish_interval, help='Interval between photo publications in seconds.')
     args = parser.parse_args()
 
-    bot = Bot(token=TELEGRAM_BOT_TOKEN)
+    bot = Bot(token=thelegram_bot_token)
     folder = 'images'
 
     published_photos = []
@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
                 remaining_photos = list(set(all_photos) - set(published_photos))
                 photo_path = random.choice(remaining_photos)
-                publish_photo_to_channel(bot, TELEGRAM_CHANNEL_ID, photo_path)
+                publish_photo_to_channel(bot, telegram_channel_id, photo_path)
                 published_photos.append(photo_path)
 
                 print(f"Published photo: {photo_path}")

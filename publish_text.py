@@ -19,14 +19,14 @@ def publish_photo_to_channel(bot, chat_id, photo_path):
 if __name__ == "__main__":
     load_dotenv()
 
-    TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-    TELEGRAM_CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID')
+    telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
+    telegram_channel_id = os.getenv('TELEGRAM_CHANNEL_ID')
 
-    bot = Bot(token=TELEGRAM_BOT_TOKEN)
+    bot = Bot(token=telegram_bot_token)
 
 
     message = "Hello, this is a test message from my bot!"
-    publish_text_to_channel(bot, TELEGRAM_CHANNEL_ID, message)
+    publish_text_to_channel(bot, telegram_channel_id, message)
 
 
     folder = 'images'
@@ -35,6 +35,6 @@ if __name__ == "__main__":
     else:
         photo_path = get_random_photo_path(folder)
         if photo_path:
-            publish_photo_to_channel(bot, TELEGRAM_CHANNEL_ID, photo_path)
+            publish_photo_to_channel(bot, telegram_channel_id, photo_path)
         else:
             print("No photos available to publish.")
