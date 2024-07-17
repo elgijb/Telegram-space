@@ -30,11 +30,9 @@ if __name__ == "__main__":
 
 
     folder = 'images'
-    if not os.path.exists(folder):
-        print(f"The folder '{folder}' does not exist.")
+
+    photo_path = get_random_photo_path(folder)
+    if photo_path:
+        publish_photo_to_channel(bot, telegram_channel_id, photo_path)
     else:
-        photo_path = get_random_photo_path(folder)
-        if photo_path:
-            publish_photo_to_channel(bot, telegram_channel_id, photo_path)
-        else:
-            print("No photos available to publish.")
+        print("No photos available to publish.")
