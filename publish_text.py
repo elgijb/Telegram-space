@@ -9,12 +9,11 @@ def get_random_photo_path(folder):
         return random.choice(all_photos)
     return None
 
-def publish_text_to_channel(bot, chat_id, text):
-    bot.send_message(chat_id=chat_id, text=text)
 
 def publish_photo_to_channel(bot, chat_id, photo_path):
     with open(photo_path, 'rb') as photo:
         bot.send_photo(chat_id=chat_id, photo=photo)
+
 
 if __name__ == "__main__":
     load_dotenv()
@@ -23,11 +22,6 @@ if __name__ == "__main__":
     telegram_channel_id = os.getenv('TELEGRAM_CHANNEL_ID')
 
     bot = Bot(token=telegram_bot_token)
-
-
-    message = "Hello, this is a test message from my bot!"
-    publish_text_to_channel(bot, telegram_channel_id, message)
-
 
     folder = 'images'
 
