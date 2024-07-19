@@ -1,5 +1,3 @@
-### README.md
-
 # Telegram Space Photo Publisher
 
 Этот проект позволяет автоматически скачивать фотографии космоса из различных источников (SpaceX, NASA APOD, NASA EPIC) и публиковать их в Telegram-канале. Вы также можете настроить частоту публикаций.
@@ -8,90 +6,103 @@
 
 1. Клонируйте репозиторий:
 
-```python
-git clone https://github.com/ваш-репозиторий/telegram-space-photo-publisher.git
-cd telegram-space-photo-publisher
-```
-    
+    ```sh
+    git clone https://github.com/ваш-репозиторий/telegram-space-photo-publisher.git
+    cd telegram-space-photo-publisher
+    ```
+
 2. Создайте и активируйте виртуальное окружение:
 
-```python
-python -m venv venv
-source venv/bin/activate  # для Windows: venv\Scripts\activate
-```    
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # для Windows: venv\Scripts\activate
+    ```
 
 3. Установите зависимости:
 
-```python
-pip install -r requirements.txt
-```
+    ```sh
+    pip install -r requirements.txt
+    ```
 
 4. Создайте файл `.env` и заполните его вашими значениями:
 
-```python
-NASA_API_KEY=ваш_nasa_api_key
-TELEGRAM_BOT_TOKEN=ваш_telegram_bot_token
-TELEGRAM_CHANNEL_ID=@ваш_telegram_channel_id
-PUBLISH_INTERVAL=@ваш_интервал
-```
+    ```sh
+    NASA_API_KEY=ваш_nasa_api_key
+    TELEGRAM_BOT_TOKEN=ваш_telegram_bot_token
+    TELEGRAM_CHANNEL_ID=@ваш_telegram_channel_id
+    PUBLISH_INTERVAL=@ваш_интервал
+    ```
+
 ## Скрипты
 
 ### 1. Скачивание фотографий SpaceX
 
 Скачивает фотографии с последнего запуска SpaceX или с указанного запуска, если указан его ID.
-```python
+
+```sh
 python fetch_spacex_images.py --launch_id <launch_id>  # опционально
 ```
+
 Пример:
-```python
+
+```sh
 python fetch_spacex_images.py
 ```
 
 ### 2. Скачивание фотографий NASA APOD
 
 Скачивает указанное количество фотографий NASA APOD.
-```python
+
+```sh
 python fetch_nasa_apod.py --count <количество_фото>
 ```
+
 Пример:
-```python
+
+```sh
 python fetch_nasa_apod.py --count 5
 ```
 
 ### 3. Скачивание фотографий NASA EPIC
 
 Скачивает фотографии NASA EPIC.
-```python
+
+```sh
 python fetch_epic_images.py
 ```
 
 ### 4. Публикация текста и случайной фотографии в Telegram
 
 Публикует текстовое сообщение и случайную фотографию из указанных папок в ваш Telegram-канал.
-```python
+
+```sh
 python publish_text.py
 ```
 
 ### 5. Автоматическая публикация фотографий через заданные промежутки времени
 
 Публикует фотографии из заданной директории через указанные промежутки времени. Если все фото были опубликованы, начинает публикацию заново, перемешав фото в случайном порядке.
-```pytohon
+
+```sh
 python publish_scheduled_photos.py --interval <часы>
 ```
+
 Пример:
-```python
+
+```sh
 python publish_scheduled_photos.py --interval 4
 ```
+
 ## Проверка
 
 1. Откройте новую консоль, чтобы сбросить переменные окружения.
 
 2. Создайте новое виртуальное окружение и активируйте его:
 
-```python
-python -m venv venv
-source venv/bin/activate  # для Windows: venv\Scripts\activate
-```
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # для Windows: venv\Scripts\activate
+    ```
 
 3. Последовательно выполните все инструкции по установке и запустите каждый из скриптов, чтобы убедиться, что они работают как описано.
 
