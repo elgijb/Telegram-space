@@ -4,11 +4,12 @@ import time
 import argparse
 from telegram import Bot
 from dotenv import load_dotenv
-from publish_random_photo import get_random_photo_path
+
 
 def publish_photo_to_channel(bot, chat_id, photo_path):
     with open(photo_path, 'rb') as photo:
         bot.send_photo(chat_id=chat_id, photo=photo)
+
 
 if __name__ == "__main__":
     load_dotenv()
@@ -31,9 +32,12 @@ if __name__ == "__main__":
             print(f"The folder '{folder}' does not exist.")
             continue
 
-        all_files = os.walk("images")
+        all_files = os.walk(folder)
         for array_of_files in all_files:
             folder, nested_folder, files_names = array_of_files
-            file_name = random.choice(files_names)
-
-        print(f"Published photo: {files_names}")
+            random.choice(files_names)
+            for file_name in  files_names:
+                photo_path = os.path.join(folder, file_name)
+                publish_photo_to_channel(bot, telegram_channel_id, photo_path)
+                time.sleep(5)
+            time.sleep(publish_interval)
