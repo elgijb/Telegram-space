@@ -28,18 +28,20 @@ pip install -r requirements.txt
 
 4. Создайте файл `.env` и заполните его вашими значениями:
 
-    NASA_API_KEY=ваш_nasa_api_key
-    TELEGRAM_BOT_TOKEN=ваш_telegram_bot_token
-    TELEGRAM_CHANNEL_ID=@ваш_telegram_channel_id
-    PUBLISH_INTERVAL=@ваш_интервал
-    
+```python
+NASA_API_KEY=ваш_nasa_api_key
+TELEGRAM_BOT_TOKEN=ваш_telegram_bot_token
+TELEGRAM_CHANNEL_ID=@ваш_telegram_channel_id
+PUBLISH_INTERVAL=@ваш_интервал
+```
 ## Скрипты
 
 ### 1. Скачивание фотографий SpaceX
 
 Скачивает фотографии с последнего запуска SpaceX или с указанного запуска, если указан его ID.
+```python
 python fetch_spacex_images.py --launch_id <launch_id>  # опционально
-
+```
 Пример:
 ```python
 python fetch_spacex_images.py
@@ -48,8 +50,9 @@ python fetch_spacex_images.py
 ### 2. Скачивание фотографий NASA APOD
 
 Скачивает указанное количество фотографий NASA APOD.
+```python
 python fetch_nasa_apod.py --count <количество_фото>
-
+```
 Пример:
 ```python
 python fetch_nasa_apod.py --count 5
@@ -72,8 +75,9 @@ python publish_text.py
 ### 5. Автоматическая публикация фотографий через заданные промежутки времени
 
 Публикует фотографии из заданной директории через указанные промежутки времени. Если все фото были опубликованы, начинает публикацию заново, перемешав фото в случайном порядке.
+```pytohon
 python publish_scheduled_photos.py --interval <часы>
-
+```
 Пример:
 ```python
 python publish_scheduled_photos.py --interval 4
