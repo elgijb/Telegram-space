@@ -4,7 +4,7 @@ import time
 import argparse
 from telegram import Bot
 from dotenv import load_dotenv
-from publish_text import get_random_photo_path
+from publish_random_photo import get_random_photo_path
 
 def publish_photo_to_channel(bot, chat_id, photo_path):
     with open(photo_path, 'rb') as photo:
